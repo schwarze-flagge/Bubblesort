@@ -22,6 +22,9 @@ public class MoD_sort extends JFrame {
   
   private JLabel lAnzahlVergleiche = new JLabel();
   private JNumberField versucheNF = new JNumberField();
+  int length = unsorted.length;
+  
+  
   // Ende Attribute
   
   public MoD_sort() { 
@@ -100,12 +103,25 @@ public class MoD_sort extends JFrame {
     unsortLabel.setText("" + unsorted[0]);
     for (int j = 1;j < laenge ;j++ ) {
       unsortLabel.setText(unsortLabel.getText() + ";" + unsorted[j]);
-    } // end of for
+      
     
-  } // end of bGeneriere_ActionPerformed
+      
+    } // end of for
+     // end of for
+    
+  } // end of bGeneriere_ActionPerformed                                                         
 
   public void bSort_ActionPerformed(ActionEvent evt) {
     // TODO - hier sind Sie gefragt: Sortieren Sie die Zahlen im array unsorted aufsteigend!
+  
+  
+  for (int k = 0;k < length ;k++ ) {
+      System.out.println(unsorted[k]);
+  } 
+    
+
+  
+
     
   } // end of bSort_ActionPerformed
 
