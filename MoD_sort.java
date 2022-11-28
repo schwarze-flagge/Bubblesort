@@ -87,7 +87,7 @@ public class MoD_sort extends JFrame {
   } // end of main
   
   public void bGeneriere_ActionPerformed(ActionEvent evt) {
-    //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximallänge: 80 Zahlen)
+    //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximallï¿½nge: 80 Zahlen)
     int laenge = Math.min(laengeNF.getInt(),50);
     for (int i = 0;i<50 ;i++ ) {
       unsorted[i] = 0;
@@ -105,6 +105,29 @@ public class MoD_sort extends JFrame {
   } // end of bGeneriere_ActionPerformed
 
   public void bSort_ActionPerformed(ActionEvent evt) {
+    int c = 0;
+
+    for (int i = 0; i < unsorted.size(); i++) {
+      int a = unsorted.get(i);
+      int b = i-1;
+
+      while (b >= 0 && a < unsorted.get(b)) {
+        unsorted.set(b + 1, unsorted.get(b));
+        b--;
+        c++;
+      }
+      unsorted.set(b + 1, a);
+    }
+
+    end = String.valueOf(unsorted.get(0));
+
+    for (int i = 1; i < length; i++) {
+      end = end+"-"+ unsorted.get(i);
+    }
+
+    label_sort.setText(end);
+    numberField_try.setInt(c);
+  }
     // TODO - hier sind Sie gefragt: Sortieren Sie die Zahlen im array unsorted aufsteigend!
     
   } // end of bSort_ActionPerformed
