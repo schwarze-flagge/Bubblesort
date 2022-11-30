@@ -19,9 +19,12 @@ public class MoD_sort extends JFrame {
   private JLabel unsortLabel = new JLabel();
   private JLabel sortLabel = new JLabel();
   public int[] unsorted = new int[50];
+  int n = unsorted.length;
+  int a = 0;
   
   private JLabel lAnzahlVergleiche = new JLabel();
   private JNumberField versucheNF = new JNumberField();
+  private JLabel jLabel1 = new JLabel();
   // Ende Attribute
   
   public MoD_sort() { 
@@ -75,6 +78,9 @@ public class MoD_sort extends JFrame {
     versucheNF.setText("");
     versucheNF.setEditable(false);
     cp.add(versucheNF);
+    jLabel1.setBounds(232, 120, 110, 20);
+    jLabel1.setText("text");
+    cp.add(jLabel1);
     // Ende Komponenten
     
     setVisible(true);
@@ -104,33 +110,32 @@ public class MoD_sort extends JFrame {
     
   } // end of bGeneriere_ActionPerformed
 
-  public void bSort_ActionPerformed(ActionEvent evt) {
-    int c = 0;
-
-    for (int i = 0; i < unsorted.size(); i++) {
-      int a = unsorted.get(i);
-      int b = i-1;
-
-      while (b >= 0 && a < unsorted.get(b)) {
-        unsorted.set(b + 1, unsorted.get(b));
-        b--;
-        c++;
+    public void bSort_ActionPerformed(ActionEvent evt) {
+           for (int i = 0; i < n; i++) {
+               for (int b = 1; b < (n-i); b++) {
+                   if (unsorted[b-1] > unsorted[b]) {
+                      a = unsorted[b-1];
+                      unsorted[b-1] = unsorted[b];
+                      unsorted[b] = a;
+          
+          } // end of if
+        
+        }
+      
       }
-      unsorted.set(b + 1, a);
+    
+      
+      
+      
+    for (int c=0; c < unsorted.length ; c++) {
+          sortLabel.setText(""+" ; " + unsorted[c]);
     }
-
-    end = String.valueOf(unsorted.get(0));
-
-    for (int i = 1; i < length; i++) {
-      end = end+"-"+ unsorted.get(i);
-    }
-
-    label_sort.setText(end);
-    numberField_try.setInt(c);
-  }
-    // TODO - hier sind Sie gefragt: Sortieren Sie die Zahlen im array unsorted aufsteigend!
+            
+   
+  
+    }// TODO - hier sind Sie gefragt: Sortieren Sie die Zahlen im array unsorted aufsteigend!
     
   } // end of bSort_ActionPerformed
 
   // Ende Methoden
-} // end of class MoD_sort
+ // end of class MoD_sort
