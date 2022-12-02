@@ -18,7 +18,7 @@ public class MoD_sort extends JFrame {
   private JNumberField laengeNF = new JNumberField();
   private JLabel unsortLabel = new JLabel();
   private JLabel sortLabel = new JLabel();
-  public int[] unsorted = new int[50];
+  public int[] unsorted = new int[20];
   int n = unsorted.length;
   int a = 0;
   
@@ -94,8 +94,8 @@ public class MoD_sort extends JFrame {
   
   public void bGeneriere_ActionPerformed(ActionEvent evt) {
     //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximall�nge: 80 Zahlen)
-    int laenge = Math.min(laengeNF.getInt(),50);
-    for (int i = 0;i<50 ;i++ ) {
+    int laenge = Math.min(laengeNF.getInt(),20);
+    for (int i = 0;i<20 ;i++ ) {
       unsorted[i] = 0;
     } // end of for
     
@@ -108,7 +108,7 @@ public class MoD_sort extends JFrame {
       unsortLabel.setText(unsortLabel.getText() + ";" + unsorted[j]);
     } // end of for
     
-  } // end of bGeneriere_ActionPerformed
+  } // end of bGeneriere_ActionPerformed 
 
     public void bSort_ActionPerformed(ActionEvent evt) {
            for (int i = 0; i < n; i++) {
@@ -121,15 +121,18 @@ public class MoD_sort extends JFrame {
           } // end of if
         
         }
-      
+
       }
+   
+    for (int u=0; u < unsorted.length ;u++ ) {
+      sortLabel.setText(";" + unsorted[u]);
+    } // end of for
+    
     
       
       
       
-    for (int c=0; c < unsorted.length ; c++) {
-          sortLabel.setText(""+" ; " + unsorted[c]);
-    }
+    
             
    
   
