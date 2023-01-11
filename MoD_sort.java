@@ -2,6 +2,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.util.Arrays;
+
 
 /**
  *
@@ -18,13 +20,19 @@ public class MoD_sort extends JFrame {
   private JNumberField laengeNF = new JNumberField();
   private JLabel unsortLabel = new JLabel();
   private JLabel sortLabel = new JLabel();
-  public int[] unsorted = new int[20];
-  int n = unsorted.length;
-  int a = 0;
+  public int[] unsorted;
+  
+  
+  
   
   private JLabel lAnzahlVergleiche = new JLabel();
   private JNumberField versucheNF = new JNumberField();
   private JLabel jLabel1 = new JLabel();
+  private JLabel jLabel2 = new JLabel();
+  private JLabel jLabel3 = new JLabel();
+  private JLabel jLabel4 = new JLabel();
+  private JLabel jLabel5 = new JLabel();
+  private JLabel jLabel6 = new JLabel();
   // Ende Attribute
   
   public MoD_sort() { 
@@ -32,7 +40,7 @@ public class MoD_sort extends JFrame {
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     int frameWidth = 945; 
-    int frameHeight = 194;
+    int frameHeight = 237;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -78,9 +86,24 @@ public class MoD_sort extends JFrame {
     versucheNF.setText("");
     versucheNF.setEditable(false);
     cp.add(versucheNF);
-    jLabel1.setBounds(232, 120, 110, 20);
-    jLabel1.setText("text");
+    jLabel1.setBounds(332, 71, 70, 36);
+    jLabel1.setText("Worst Case: ");
     cp.add(jLabel1);
+    jLabel2.setBounds(326, 9, 78, 36);
+    jLabel2.setText("Best Case: ");
+    cp.add(jLabel2);
+    jLabel3.setBounds(410, 11, 110, 36);
+    jLabel3.setText("");
+    cp.add(jLabel3);
+    jLabel4.setBounds(404, 77, 110, 36);
+    jLabel4.setText("");
+    cp.add(jLabel4);
+    jLabel5.setBounds(7, 139, 110, 28);
+    jLabel5.setText("Durchschnitt:");
+    cp.add(jLabel5);
+    jLabel6.setBounds(126, 131, 110, 36);
+    jLabel6.setText("text");
+    cp.add(jLabel6);
     // Ende Komponenten
     
     setVisible(true);
@@ -94,8 +117,9 @@ public class MoD_sort extends JFrame {
   
   public void bGeneriere_ActionPerformed(ActionEvent evt) {
     //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximall�nge: 80 Zahlen)
-    int laenge = Math.min(laengeNF.getInt(),20);
-    for (int i = 0;i<20 ;i++ ) {
+    int laenge = Math.min(laengeNF.getInt(),laengeNF.getInt());
+    unsorted = new int[laengeNF.getInt()];
+    for (int i = 0;i<laengeNF.getInt() ;i++ ) {
       unsorted[i] = 0;
     } // end of for
     
@@ -111,34 +135,29 @@ public class MoD_sort extends JFrame {
   } // end of bGeneriere_ActionPerformed 
 
     public void bSort_ActionPerformed(ActionEvent evt) {
-           for (int i = 0; i < n; i++) {
-               for (int b = 1; b < (n-i); b++) {
+      int a = 0;
+      int vergleiche = 0;
+           for (int i = 0; i < unsorted.length; i++) {
+               for (int b = 1; b < (unsorted.length - i); b++) {
+                   vergleiche++;
                    if (unsorted[b-1] > unsorted[b]) {
-                      a = unsorted[b-1];
+                      a = unsorted[b-1]; //Hier beginnt 
                       unsorted[b-1] = unsorted[b];
                       unsorted[b] = a;
           
           } // end of if
         
-        }
-
       }
-   
-    for (int u=0; u < unsorted.length ;u++ ) {
-      sortLabel.setText(";" + unsorted[u]);
-    } // end of for
-    
-    
-      
-      
       
     
-            
-   
+    }
+    sortLabel.setText("");
+    
+  for (int i = 0 ;i < unsorted.length ;i++ ) {
+      sortLabel.setText(sortLabel.getText() + unsorted[i]+".");
+     }           
+  versucheNF.setText(vergleiche + "."); vergleiche = 0; jLabel3.setText(laengeNF.getInt()+ ""); jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + "") jLabel6.setText(laengeNF.getInt() + ""); }
   
-    }// TODO - hier sind Sie gefragt: Sortieren Sie die Zahlen im array unsorted aufsteigend!
-    
-  } // end of bSort_ActionPerformed
-
-  // Ende Methoden
- // end of class MoD_sort
+  
+  
+ }// end of class MoD_sort
