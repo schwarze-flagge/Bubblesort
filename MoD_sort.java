@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.util.Arrays;
+import java.lang.Math;
 
 
 /**
@@ -102,7 +103,7 @@ public class MoD_sort extends JFrame {
     jLabel5.setText("Durchschnitt:");
     cp.add(jLabel5);
     jLabel6.setBounds(126, 131, 110, 36);
-    jLabel6.setText("text");
+    jLabel6.setText("");
     cp.add(jLabel6);
     // Ende Komponenten
     
@@ -156,7 +157,12 @@ public class MoD_sort extends JFrame {
   for (int i = 0 ;i < unsorted.length ;i++ ) {
       sortLabel.setText(sortLabel.getText() + unsorted[i]+".");
      }           
-  versucheNF.setText(vergleiche + "."); vergleiche = 0; jLabel3.setText(laengeNF.getInt()+ ""); jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + "") jLabel6.setText(laengeNF.getInt() + ""); }
+  versucheNF.setText(vergleiche + "."); vergleiche = 0;
+   jLabel3.setText(laengeNF.getInt()+ "");
+   jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + "");
+   jLabel6.setText(0,25 * (Math.pow(laengeNF.getInt(), 2) - laengeNF.getInt()) + "");
+   
+    }
   
   
   
