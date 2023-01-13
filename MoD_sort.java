@@ -118,7 +118,7 @@ public class MoD_sort extends JFrame {
   
   public void bGeneriere_ActionPerformed(ActionEvent evt) {
     //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximall�nge: 80 Zahlen)
-    int laenge = Math.min(laengeNF.getInt(),laengeNF.getInt());
+    int laenge = Math.min(laengeNF.getInt(),laengeNF.getInt()); //Hier haben wir die Länge des Strings auf die im Numberfield spezifizierten Zahl angepasst
     unsorted = new int[laengeNF.getInt()];
     for (int i = 0;i<laengeNF.getInt() ;i++ ) {
       unsorted[i] = 0;
@@ -136,13 +136,13 @@ public class MoD_sort extends JFrame {
   } // end of bGeneriere_ActionPerformed 
 
     public void bSort_ActionPerformed(ActionEvent evt) {
-      int a = 0;
+      int a = 0; //Zunächst stellen wir ein paar Variablen auf die beim Berechnen helfen
       int vergleiche = 0;
            for (int i = 0; i < unsorted.length; i++) {
                for (int b = 1; b < (unsorted.length - i); b++) {
                    vergleiche++;
-                   if (unsorted[b-1] > unsorted[b]) {
-                      a = unsorted[b-1]; //Hier beginnt 
+                   if (unsorted[b-1] > unsorted[b]) { //Hier werden die tatsächlichen vergleiche Angestellt und das Tauschen vorgenommen
+                      a = unsorted[b-1];           
                       unsorted[b-1] = unsorted[b];
                       unsorted[b] = a;
           
@@ -152,15 +152,15 @@ public class MoD_sort extends JFrame {
       
     
     }
-    sortLabel.setText("");
+    sortLabel.setText("");       //Setzt die Ausgabe zurück, sodass das Programm mehrere male laufen kann
     
   for (int i = 0 ;i < unsorted.length ;i++ ) {
-      sortLabel.setText(sortLabel.getText() + unsorted[i]+".");
+      sortLabel.setText(sortLabel.getText() + unsorted[i]+".");//Gibt den Sortierten String aus
      }           
   versucheNF.setText(vergleiche + "."); vergleiche = 0;
-   jLabel3.setText(laengeNF.getInt()+ "");
-   jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + "");
-   jLabel6.setText(0,25 * (Math.pow(laengeNF.getInt(), 2) - laengeNF.getInt()) + "");
+   jLabel3.setText(laengeNF.getInt()+ ""); //Errechnet den Best Case und gibt diesen aus
+   jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + ""); //Errechnet den Worst Case und gibt diesen aus
+   
    
     }
   
