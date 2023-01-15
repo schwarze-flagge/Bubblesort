@@ -118,7 +118,7 @@ public class MoD_sort extends JFrame {
   
   public void bGeneriere_ActionPerformed(ActionEvent evt) {
     //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximall�nge: 80 Zahlen)
-    int laenge = Math.min(laengeNF.getInt(),laengeNF.getInt());     //Anpassen der Stringlänge an die eingegebene Länge
+    int laenge = Math.min(laengeNF.getInt(),laengeNF.getInt());     //Anpassen der Arraylänge an die eingegebene Länge
     unsorted = new int[laengeNF.getInt()];
     for (int i = 0;i<laengeNF.getInt() ;i++ ) {
       unsorted[i] = 0;
@@ -142,7 +142,7 @@ public class MoD_sort extends JFrame {
                for (int b = 1; b < (unsorted.length - i); b++) {
                    vergleiche++; //Feststellen Anzahl Vergleiche
                    if (unsorted[b-1] > unsorted[b]) { //Vergleich der größe der Zahlen
-                      a = unsorted[b-1]; //Tauschen der Zahlen innerhalb des Strings
+                      a = unsorted[b-1]; //Tauschen der Zahlen innerhalb des Arrays
                       unsorted[b-1] = unsorted[b];
                       unsorted[b] = a;
           
@@ -154,7 +154,7 @@ public class MoD_sort extends JFrame {
     }
     sortLabel.setText("");
     
-  for (int i = 0 ;i < unsorted.length ;i++ ) {                    //Ausgabe des Sortierten Strings
+  for (int i = 0 ;i < unsorted.length ;i++ ) {                    //Ausgabe des Sortierten Arrays
       sortLabel.setText(sortLabel.getText() + unsorted[i]+".");
      }           
   versucheNF.setText(vergleiche + "."); vergleiche = 0;          //Ausgeben und zurücksetzen der Vergleiche
