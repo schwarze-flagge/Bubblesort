@@ -141,7 +141,7 @@ public class MoD_sort extends JFrame {
            for (int i = 0; i < unsorted.length; i++) {           //Initialisierung der Schleife
                for (int b = 1; b < (unsorted.length - i); b++) {
                    vergleiche++; //Feststellen Anzahl Vergleiche
-                   if (unsorted[b-1] > unsorted[b]) { //Vergleich der größe der Zahlen
+                   if (unsorted[b-1] > unsorted[b]) { //Vergleich der größe der Zahlen         s
                       a = unsorted[b-1]; //Tauschen der Zahlen innerhalb des Arrays
                       unsorted[b-1] = unsorted[b];
                       unsorted[b] = a;
@@ -158,8 +158,8 @@ public class MoD_sort extends JFrame {
       sortLabel.setText(sortLabel.getText() + unsorted[i]+".");
      }           
   versucheNF.setText(vergleiche + "."); vergleiche = 0;          //Ausgeben und zurücksetzen der Vergleiche
-   jLabel3.setText(laengeNF.getInt()+ "");                       //Ausgabe Best Case
-   jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + "");  //Ausgabe Worst Case
+   jLabel3.setText(laengeNF.getInt() - 1 + "");                       //Ausgabe Best Case
+   jLabel4.setText(0.5 * (laengeNF.getInt() * laengeNF.getInt() - 1)+ "");  //Ausgabe Worst Case
    
    
     }
