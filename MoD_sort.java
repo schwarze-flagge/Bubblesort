@@ -118,7 +118,7 @@ public class MoD_sort extends JFrame {
   
   public void bGeneriere_ActionPerformed(ActionEvent evt) {
     //Generierung und Ausgabe der unsortierten Zufallszahlen (voreingestellte Maximall�nge: 80 Zahlen)
-    int laenge = Math.min(laengeNF.getInt(),laengeNF.getInt()); //Hier haben wir die Länge des Strings auf die im Numberfield spezifizierten Zahl angepasst
+    int laenge = Math.min(laengeNF.getInt(),laengeNF.getInt());     //Anpassen der Stringlänge an die eingegebene Länge
     unsorted = new int[laengeNF.getInt()];
     for (int i = 0;i<laengeNF.getInt() ;i++ ) {
       unsorted[i] = 0;
@@ -136,13 +136,13 @@ public class MoD_sort extends JFrame {
   } // end of bGeneriere_ActionPerformed 
 
     public void bSort_ActionPerformed(ActionEvent evt) {
-      int a = 0; //Zunächst stellen wir ein paar Variablen auf die beim Berechnen helfen
+      int a = 0;          //Aufstellen von Variablen
       int vergleiche = 0;
-           for (int i = 0; i < unsorted.length; i++) {
+           for (int i = 0; i < unsorted.length; i++) {           //Initialisierung der Schleife
                for (int b = 1; b < (unsorted.length - i); b++) {
-                   vergleiche++;
-                   if (unsorted[b-1] > unsorted[b]) { //Hier werden die tatsächlichen vergleiche Angestellt und das Tauschen vorgenommen
-                      a = unsorted[b-1];           
+                   vergleiche++; //Feststellen Anzahl Vergleiche
+                   if (unsorted[b-1] > unsorted[b]) { //Vergleich der größe der Zahlen
+                      a = unsorted[b-1]; //Tauschen der Zahlen innerhalb des Strings
                       unsorted[b-1] = unsorted[b];
                       unsorted[b] = a;
           
@@ -152,14 +152,14 @@ public class MoD_sort extends JFrame {
       
     
     }
-    sortLabel.setText("");       //Setzt die Ausgabe zurück, sodass das Programm mehrere male laufen kann
+    sortLabel.setText("");
     
-  for (int i = 0 ;i < unsorted.length ;i++ ) {
-      sortLabel.setText(sortLabel.getText() + unsorted[i]+".");//Gibt den Sortierten String aus
+  for (int i = 0 ;i < unsorted.length ;i++ ) {                    //Ausgabe des Sortierten Strings
+      sortLabel.setText(sortLabel.getText() + unsorted[i]+".");
      }           
-  versucheNF.setText(vergleiche + "."); vergleiche = 0;
-   jLabel3.setText(laengeNF.getInt()+ ""); //Errechnet den Best Case und gibt diesen aus
-   jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + ""); //Errechnet den Worst Case und gibt diesen aus
+  versucheNF.setText(vergleiche + "."); vergleiche = 0;          //Ausgeben und zurücksetzen der Vergleiche
+   jLabel3.setText(laengeNF.getInt()+ "");                       //Ausgabe Best Case
+   jLabel4.setText(laengeNF.getInt() * laengeNF.getInt() + "");  //Ausgabe Worst Case
    
    
     }
