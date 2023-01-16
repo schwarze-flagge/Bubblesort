@@ -99,12 +99,8 @@ public class MoD_sort extends JFrame {
     jLabel4.setBounds(404, 77, 110, 36);
     jLabel4.setText("");
     cp.add(jLabel4);
-    jLabel5.setBounds(7, 139, 110, 28);
-    jLabel5.setText("Durchschnitt:");
-    cp.add(jLabel5);
-    jLabel6.setBounds(126, 131, 110, 36);
-    jLabel6.setText("");
-    cp.add(jLabel6);
+    
+  
     // Ende Komponenten
     
     setVisible(true);
