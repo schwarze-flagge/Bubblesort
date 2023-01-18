@@ -135,9 +135,9 @@ public class MoD_sort extends JFrame {
       int a = 0;          //Aufstellen von Variablen
       int vergleiche = 0;
            for (int i = 0; i < unsorted.length; i++) {           //Initialisierung der Schleife
-               for (int b = 1; b < (unsorted.length - i); b++) {
+               for (int b = 1; b < (unsorted.length - i); b++) { //Größenvergleich
                    vergleiche++; //Feststellen Anzahl Vergleiche
-                   if (unsorted[b-1] > unsorted[b]) { //Vergleich der größe der Zahlen         s
+                   if (unsorted[b-1] > unsorted[b]) {            //Größenvergleich
                       a = unsorted[b-1]; //Tauschen der Zahlen innerhalb des Arrays
                       unsorted[b-1] = unsorted[b];
                       unsorted[b] = a;
@@ -158,6 +158,7 @@ public class MoD_sort extends JFrame {
    jLabel4.setText(0.5 * (laengeNF.getInt() * (laengeNF.getInt() - 1))+ "");  //Ausgabe Worst Case
    
    
+  // Ende Methoden
     }
   
   
